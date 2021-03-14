@@ -4,6 +4,7 @@ RUN yum install -y curl
 RUN yum install -y unzip
 RUN yum install -y git
 RUN yum install -y openssl
+RUN yum install -y tar
 
 RUN curl -o /tmp/terraform.zip -LO https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip
 RUN unzip /tmp/terraform.zip
