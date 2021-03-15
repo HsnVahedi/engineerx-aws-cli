@@ -5,6 +5,7 @@ RUN yum install -y unzip
 RUN yum install -y git
 RUN yum install -y openssl
 RUN yum install -y tar
+RUN yum install -y jq
 
 RUN curl -o /tmp/terraform.zip -LO https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip
 RUN unzip /tmp/terraform.zip
@@ -20,3 +21,5 @@ RUN rm get_helm.sh
 
 RUN curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 RUN mv /tmp/eksctl /usr/local/bin
+
+ENTRYPOINT bash
