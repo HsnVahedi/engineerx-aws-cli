@@ -24,3 +24,4 @@ RUN curl --silent --location "https://github.com/weaveworks/eksctl/releases/late
 RUN mv /tmp/eksctl /usr/local/bin
 
 # ENTRYPOINT bash
+CMD ["bash"]
