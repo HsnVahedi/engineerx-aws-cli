@@ -13,7 +13,7 @@
 ## Table of contents
 
 - [Introduction to EngineerX project](#introduction-to-engineerx-project)
-- [aws-cli docker image](#faws-cli-docker-image)
+- [aws-cli docker image](#aws-cli-docker-image)
 - [EngineerX code repositories](#engineerx-code-repositories)
 
 
