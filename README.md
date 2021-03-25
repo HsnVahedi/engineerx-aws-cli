@@ -1,11 +1,11 @@
 <p align="center">
 
-  <h3 align="center">EngineerX Frontend Microservices</h3>
+  <h3 align="center">EngineerX AWS CLI</h3>
 
   <p align="center">
-    <a href="https://github.com/HsnVahedi/engineerx-frontend/issues/new">Report bug</a>
+    <a href="https://github.com/HsnVahedi/engineerx-aws-cli/issues/new">Report bug</a>
     ·
-    <a href="https://github.com/HsnVahedi/engineerx-frontend/issues/new">Request feature</a>
+    <a href="https://github.com/HsnVahedi/engineerx-aws-cli/issues/new">Request feature</a>
   </p>
 </p>
 
@@ -13,8 +13,7 @@
 ## Table of contents
 
 - [Introduction to EngineerX project](#introduction-to-engineerx-project)
-- [Frontend Microservice](#frontend-microservice)
-- [Run this project](#run-this-project)
+- [aws-cli docker image](#faws-cli-docker-image)
 - [EngineerX code repositories](#engineerx-code-repositories)
 
 
@@ -41,82 +40,12 @@ Key features of the project:
 
 
 
-## Frontend Microservice
-This repository contains the project's frontend microservice. It's a modern react application created by nextjs framework. It has these nice features:
+## aws-cli docker image
+The easiest way to connect to aws is using [aws-cli docker image](https://hub.docker.com/r/amazon/aws-cli). It's based on Amazon Linux and has aws cli installed.
 
-#### 1. SEO friendly
-Unlike `create-react-app`, nextjs renders html files at server side. So search engine crawlers can easily read the website.
+[EngineerX's aws-cli](https://github.com/HsnVahedi/engineerx-aws-cli/blob/main/Dockerfile) is based on the official image. It has `terraform`, `kubernetes` and `helm` installed.
 
-#### 2. Supporting multiple Data-fetching methods
-Nextjs provides powerful tools for data-fetching. Frontend developers can combine different ways of data-fetching to construct the most optimized application.
-
-For example, here is our Post page:
-
-
-    const Page = ({ post }) => {
-      const postJson = JSON.parse(post);
-      return (
-        <Layout>
-          <Post post={postJson} />
-        </Layout>
-      );
-    };
-
-    export const getStaticProps = async ({ params, preview, previewData }) => {
-      const post = await getPostBySlug(params.slug);
-        if (post) {
-          return {
-            props: {
-              post: JSON.stringify(post),
-            },
-            revalidate: 5,
-          };
-        } else {
-            return {
-              notFound: true,
-            };
-        }
-    };
-
-    export const getStaticPaths = async () => {
-      const slugs = await getPostSlugs();
-      return {
-        paths: slugs.map((slug) => `/posts/${encodeURIComponent(slug)}`),
-        fallback: "blocking",
-      };
-    };
-    
-These two serverless functions (`getStaticProps` and `getStaticPaths`) are used to generate all posts at build stage (`npm run build`). This means when a user's bowser requests a page, it's already there! But unlike static site generators, the created html files can get updated after that. 
-
-Nextjs also provides `getServerSideProps` and `useSWR` hook for other scenarios. To read more about nextjs data-fetching check [this](https://nextjs.org/docs/basic-features/data-fetching) out.
-
-#### 3. Nextjs image optimization
-For more details check [this](https://nextjs.org/docs/basic-features/image-optimization) out.
-
-#### 4. Material UI
-This project is built using [Material UI](https://material-ui.com/).
-
-## Run this project
-
-#### 1. Clone this repository:
-    git clone https://github.com/HsnVahedi/engineerx-frontend
-#### 2. Pull the required backend docker images:
-    cd engineerx-frontend
-    docker-compose -f backend-docker-compose.yaml pull
-#### 3. Start the backend production server:
-    docker-compose -f backend-docker-compose.yaml up
-#### 4. Now open another terminal and execute bash in the backend container:
-    docker-compose -f backend-docker-compose.yaml exec backend bash
-#### 5. Initialize the database with randomly generated objects:
-    python manage.py initdb
-#### 6. Now open another terminal and Install npm packages:
-    npm install
-#### 7. Run frontend microservice:
-If you want to run development environment, simply run `npm run dev`. If you want to run production environment run `export LOCAL=1 && npm run build && npm run start`.
-    
-Now you can see the project is running on `127.0.0.1:3000/`.
-
-
+This image is used for manage [infrastructure](https://github.com/HsnVahedi/engineerx-aws-infrastructure), [deployment](https://github.com/HsnVahedi/engineerx-aws-deployment), [backend tests](https://github.com/HsnVahedi/engineerx-backend-unittest), [frontend tests](https://github.com/HsnVahedi/engineerx-frontend-unittest) and integration tests
 
 ## EngineerX code repositories
 
