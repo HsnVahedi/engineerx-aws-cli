@@ -47,7 +47,7 @@ The easiest way to connect to aws is using [aws-cli docker image](https://hub.do
 
 This image is used to manage [infrastructure](https://github.com/HsnVahedi/engineerx-aws-infrastructure), [deployment](https://github.com/HsnVahedi/engineerx-aws-deployment), [backend tests](https://github.com/HsnVahedi/engineerx-backend-unittest), [frontend tests](https://github.com/HsnVahedi/engineerx-frontend-unittest) and [integration tests](https://github.com/HsnVahedi/engineerx-integration-test)
 
-## [EngineerX](https://github.com/HsnVahedi/engineerx-aws-cli/edit/main/README.md) code repositories
+## [EngineerX](http://a8c390f2223364021a14ec3fb45263a7-1113280492.us-east-2.elb.amazonaws.com) code repositories
 
 EngineerX is a big project and consists of several code bases:
 
